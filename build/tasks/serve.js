@@ -4,6 +4,21 @@ import browserSync from 'browser-sync';
 import runSequence from 'run-sequence';
 import modRewrite  from 'connect-modrewrite';
 import paths from '../paths';
+import httpProxy from 'http-proxy';
+
+let proxy = httpProxy.createProxyServer({
+    target: paths.apiUrl
+});
+
+function proxyMiddleware(req, res, next) {
+    if (req.url.includes('api/')) {
+        proxy.web(req, res, (err) => {
+            next(err);
+        });
+    } else {
+        next();
+    }
+}
 
 function startBrowserSync(directoryBase, files, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -17,6 +32,7 @@ function startBrowserSync(directoryBase, files, browser) {
     server: {
       baseDir: directoryBase,
       middleware: [
+        proxyMiddleware,
         modRewrite(['!\\.\\w+$ /index.html [L]']) // require for HTML5 mode
       ]
     },

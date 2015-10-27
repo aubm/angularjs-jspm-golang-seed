@@ -32,5 +32,6 @@ export default {
     scss : `${root}/${srcDirName}/**/*.scss`,
     js : `${root}/${srcDirName}/**/!(*.spec).js`,
     fonts : fontsExtension.map(ext => `${root}/${srcDirName}/fonts/**/*.${ext}`)
-  }
+  },
+  apiUrl: 'http://127.0.0.1:8080'
 }
