@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/davinkevin/angularjs-jspm-seed/compare/v1.1.0...v1.2.0) (2015-10-27)
+
+
+### Features
+
+* **golang:** add support for golang ([811ef95](https://github.com/davinkevin/angularjs-jspm-seed/commit/811ef95))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/davinkevin/angularjs-jspm-seed/compare/v1.0.1...v1.1.0) (2015-10-26)
 
